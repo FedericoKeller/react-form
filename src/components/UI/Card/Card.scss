@@ -1,0 +1,19 @@
+.card {
+
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    
+   &__row {
+    width: 100%;
+    max-width: 55rem;
+   }
+
+   &__content {
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 2rem;
+   }
+
+}
