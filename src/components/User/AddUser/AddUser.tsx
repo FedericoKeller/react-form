@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, SyntheticEvent, useState } from "react";
 import Button from "../../UI/Button/Button";
+import Dialog from "../../UI/Dialog/Dialog";
 import { AddUserProps, UserData } from "../types";
 import './AddUser.scss';
 
@@ -16,9 +17,10 @@ const AddUser: FC<AddUserProps> = (props) => {
             age: Number.parseInt(enteredAge)
         }
 
-        const validEntries = Object.values(data).every(userProp => userProp);
-       
-        if(!validEntries) {
+        const dataProps = Object.values(data).every(value => value);
+
+        if(!dataProps) {
+            props.onInvalidData(true);
             return;
         }
 
@@ -27,22 +29,17 @@ const AddUser: FC<AddUserProps> = (props) => {
 
     const changeUsernameHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const user = event.target.value;
-
-        if(user == null) {
-            return;
-        }
-
         setEnteredUsername(user);
     }
 
     
     const changeAgeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const age = event.target.value;
-
         setEnteredAge(age);
     }
 
     return (
+        <div>
         <form className="form" onSubmit={submitFormHandler}>
             <div className="form__control">
                 <label htmlFor="username">Username</label>
@@ -56,6 +53,7 @@ const AddUser: FC<AddUserProps> = (props) => {
                 <Button type="submit">Add User</Button>
             </div>
         </form>
+    </div>
     )
 }
 

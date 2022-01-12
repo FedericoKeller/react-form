@@ -11,8 +11,20 @@
    }
 
    &__content {
-    background-color: #fff;
     border-radius: 3px;
+    overflow: hidden;
+   }
+
+   &__header {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-color: #8b005d;
+    color: white;
+    padding: 1rem;
+}
+
+   &__children {
+    background-color: #fff;
     padding: 2rem;
    }
 
