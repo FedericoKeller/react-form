@@ -1,9 +1,12 @@
 import { FC } from "react";
 import './Card.scss';
 
-const Card: FC<{}> = (props) => {
+const Card: FC<{className?: string}> = (props) => {
+  const classNames = `card ${props.className ? props.className : ''}`.trim();
+
   return (
-    <div className="card">
+
+    <div className={classNames}>
       <div className="card__row">
         <div className="card__content">{props.children}</div>
       </div>
