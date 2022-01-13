@@ -22,6 +22,7 @@ const AddUser: FC<AddUserProps> = (props) => {
 
         
         const data: UserData = {
+            id: Math.random().toString(),
             username: enteredUsername,
             age: enteredAge
         }

@@ -8,6 +8,7 @@ export interface UserListProps {
 }
 
 export interface UserData {
+    id: string;
     username: string;
     age: string | number;
 }
