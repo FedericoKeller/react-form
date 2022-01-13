@@ -45,7 +45,7 @@ const AddUser = (props: AddUserProps) => {
     }
 
     return (
-        <div>
+        <>
         <form className="form" id="form" onSubmit={submitFormHandler}>
             <div className="form__control">
                 <label htmlFor="username">Username</label>
@@ -59,7 +59,7 @@ const AddUser = (props: AddUserProps) => {
                 <Button type="submit">Add User</Button>
             </div>
         </form>
-    </div>
+    </>
     )
 }
 
