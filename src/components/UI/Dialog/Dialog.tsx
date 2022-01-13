@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, SyntheticEvent } from "react";
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import './Dialog.scss';
@@ -7,7 +7,11 @@ import { DialogProps } from "./types";
 
 const Dialog: FC<DialogProps> = (props) => {
 
-    const onClickDialogHandler = () => {
+    const onClickDialogHandler = (event: SyntheticEvent) => {
+      if(event.target !== event.currentTarget) {
+        return;
+      }
+
        if(props.onConfirmation) {
         props.onConfirmation();
        }
@@ -15,7 +19,7 @@ const Dialog: FC<DialogProps> = (props) => {
 
     return (
     <div className="dialog">
-      <div className="dialog__container">
+      <div className="dialog__container" onClick={onClickDialogHandler}>
         <Card header={props.header && props.header}>
             {props.children}
            <div className="dialog__actions">
