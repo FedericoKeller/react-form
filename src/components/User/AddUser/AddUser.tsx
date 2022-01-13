@@ -1,10 +1,10 @@
-import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../../UI/Button/Button";
 import { AddUserProps, MESSAGES_MAP, UserData } from "../types";
 import './AddUser.scss';
 
 
-const AddUser: FC<AddUserProps> = (props) => {
+const AddUser = (props: AddUserProps) => {
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredAge, setEnteredAge] = useState<string | number>('');
 

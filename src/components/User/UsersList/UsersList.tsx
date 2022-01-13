@@ -1,8 +1,7 @@
-import { FC } from "react";
 import { UserListProps } from "../types";
 import './UsersList.scss';
 
-const UsersList: FC<UserListProps> = (props) => {
+const UsersList = (props: UserListProps) => {
     return (
         <div className="users">
             <ul>

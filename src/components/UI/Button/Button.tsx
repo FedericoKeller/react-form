@@ -1,7 +1,8 @@
-import { FC } from "react";
 import { ButtonProps } from "./types";
 import './Button.scss';
-  const Button: FC<ButtonProps> = props => {
+import { PropsWithChildren } from "react";
+
+  const Button = (props: PropsWithChildren<ButtonProps>) => {
     return (
       <button type={props.type} className="button" onClick={props.onClick}>
         {props.children}

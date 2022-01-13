@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { PropsWithChildren } from "react";
 import "./Card.scss";
 import { CardProps } from "./types";
 
-const Card: FC<CardProps> = (props) => {
+const Card = (props: PropsWithChildren<CardProps>) => {
   const classNames = `card ${props.className ? props.className : ""}`.trim();
 
   return (

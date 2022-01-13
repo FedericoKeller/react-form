@@ -1,11 +1,11 @@
-import { FC, SyntheticEvent } from "react";
+import { PropsWithChildren, SyntheticEvent } from "react";
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import './Dialog.scss';
 import { DialogProps } from "./types";
 
 
-const Dialog: FC<DialogProps> = (props) => {
+const Dialog = (props: PropsWithChildren<DialogProps>) => {
 
     const onClickDialogHandler = (event: SyntheticEvent) => {
       if(event.target !== event.currentTarget) {
