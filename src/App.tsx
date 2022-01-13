@@ -27,9 +27,8 @@ function App() {
   return (
     <div className="container">
       {dataState && (
-        <Dialog header="Invalid Input" onConfirmation={confirmationAccepted}>
-          {dataState}
-        </Dialog>
+        <Dialog header="Invalid Input" onConfirmation={confirmationAccepted}  message={dataState}/>
+
       )}
       <Card>
         <AddUser onSubmitForm={submitForm} onInvalidData={invalidData} />

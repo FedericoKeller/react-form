@@ -1,0 +1,16 @@
+.dialog {
+    &__container {
+        z-index: 1;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+    }
+
+    &__actions {
+        text-align: right;
+    }
+
+}

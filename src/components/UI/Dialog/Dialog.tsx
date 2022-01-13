@@ -1,34 +1,30 @@
-import { PropsWithChildren, SyntheticEvent } from "react";
-import Button from "../Button/Button";
-import Card from "../Card/Card";
-import './Dialog.scss';
 import { DialogProps } from "./types";
+import ReactDOM from "react-dom";
+import Backdrop from "./Backdrop/Backdrop";
+import OverlayModal from "./OverlayModal/OverlayModal";
 
-
-const Dialog = (props: PropsWithChildren<DialogProps>) => {
-
-    const onClickDialogHandler = (event: SyntheticEvent) => {
-      if(event.target !== event.currentTarget) {
-        return;
+const Dialog = (props: DialogProps) => {
+  return (
+    <>
+      {
+        ReactDOM.createPortal(
+          <Backdrop />,
+          document.getElementById("backdrop-root") as HTMLElement
+        )
       }
 
-       if(props.onConfirmation) {
-        props.onConfirmation();
-       }
-    }
-
-    return (
-    <div className="dialog">
-      <div className="dialog__container" onClick={onClickDialogHandler}>
-        <Card header={props.header && props.header}>
-            {props.children}
-           <div className="dialog__actions">
-           <Button type="button" onClick={onClickDialogHandler}>Okay</Button>
-           </div>
-        </Card> 
-      </div>
-    </div>
-    );
-}
+      {
+        ReactDOM.createPortal(
+          <OverlayModal
+            onConfirmation={props.onConfirmation}
+            header={props.header && props.header}
+            message={props.message}
+          />,
+          document.getElementById("overlay-root") as HTMLElement
+        )
+      }
+    </>
+  );
+};
 
 export default Dialog;
